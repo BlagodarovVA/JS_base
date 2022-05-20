@@ -1,19 +1,19 @@
 'use strict';
 
 if (4) {
-    console.log ('Ok!');
+    console.log('Ok!');
 } else {
-    console.log ('Error');
+    console.log('Error');
 }
 
 
 const num = 50;
 if (num < 49) {
-    console.log ('Error');
+    console.log('Error');
 } else if (num > 100) {
-    console.log ('Много');
+    console.log('Много');
 } else {
-    console.log ('Ok');
+    console.log('Ok');
 }
 
 
@@ -22,15 +22,15 @@ const num1 = 50;
 
 switch (num1) {
     case 49:
-        console.log ('Неверно');
+        console.log('Неверно');
         break;
     case 100:
-        console.log ('Неверно');
+        console.log('Неверно');
         break;
     case 51:
-        console.log ('Good Waldemar!');
-        break;                
-    default:                            //если не один кейз не подошёл
-        console.log ('default');
-        break;            
+        console.log('Good Waldemar!');
+        break;
+    default: //если не один кейз не подошёл
+        console.log('default');
+        break;
 }
