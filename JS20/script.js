@@ -34,3 +34,14 @@ switch (num1) {
         console.log('default');
         break;
 }
+
+
+
+let hamburger;//undefined
+const fries = NaN;
+const cola = 0;
+const nuggets = 2;
+ 
+if (hamburger && cola || fries === 3 && nuggets) {
+   console.log('Done!');
+}
