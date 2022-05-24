@@ -1,5 +1,5 @@
 'use strict';
-
+//23
 for (let i = 0; i < 3; i++) {
     console.log(i);
     for (let j = 10; j < 13; j++) {
@@ -37,6 +37,8 @@ first: for (let i = 0; i < 3; i++) {
         }
     }
 }
+
+//tasks 3
 //task 1
 for (let i = 5; i < 11; i++) {
     console.log(i);
@@ -58,12 +60,12 @@ for (let i = 2; i < 11; i++) {
 }
 
 //task 4
-let i = 2;
-while (i < 16) {
-    if (i % 2 !== 0) {
-        console.log(i);
+let k = 2;
+while (k < 16) {
+    if (k % 2 !== 0) {
+        console.log(k);
     }    
-    i++;
+    k++;
 }
 
 // task 5
