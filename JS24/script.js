@@ -68,4 +68,4 @@ if (numberOfFilms1 >= 50) {
     alert('Вы киноман');
     err = false;    
 }
-if (err == true) alert('Ошибка введённых данных');
+if (err == true) {alert('Ошибка введённых данных');}
