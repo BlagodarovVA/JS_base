@@ -22,7 +22,7 @@ function getTimeFromMinutes(minutes) {
     }
 return result;
 }
-console.log(getTimeFromMinutes(646));
+console.log(getTimeFromMinutes(146));
 
 
 //task 2
@@ -38,4 +38,4 @@ function findMaxNumber(a, b, c, d) {
 
 return result;
 }
-console.log(findMaxNumber(100, -9.25, 20.5, 34));
+console.log(findMaxNumber(-33, -9.25, 20.5, 34));
