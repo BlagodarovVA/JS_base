@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>50 - Async, defer, динамические скрипты</title>
+	<style>
+		body {
+			height: 1000px;
+		}
+		.box {
+			width: 150px;
+			height: 100px;
+			background-color: rgb(11, 236, 180);
+		}
+	</style>
+</head>
+<body>
+    <!-- defer - говорит браузеру продолжать загрузку страницы и в фоне загружать 
+        скрипт. когда скрипт загрузится - запустить. такие скрипты не блокируют html. 
+        выпоняются, когда ДОМ дерево уже готово. 
+    <script defer src="script.js"></script>  -->
+
+    <!-- async - стрница не ждёт асинхронных скриптов; события DOM и асинхронные скрипты не ждут друг друга.
+    скрипт запускается, как только был загружен, никого не ждет
+    <script async src="script1.js"></script> -->
+
+	<div class="box">
+		<h2>Здраствуйтэ!</h2>
+	</div>
+    <p>Опа коничива</p>
+
+    <script src="script.js"></script>
+</body>
+</html>
