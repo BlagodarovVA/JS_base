@@ -70,7 +70,7 @@ hearts[0].replaceWith(circles[0]);
 //wrapper.replaceChild(circles[0], hearts[0]);
 
 //вставка текста или HTML-структуры
-div.innerHTML = "<h2>Задарова Вася</h2>";
+div.innerHTML = "<h2>Здаров Вася</h2>";
 
 //только текст - при работе с пользователем, чтобы не ьыл передан вредоносный скрипт
 //div.textContent = "Hello";

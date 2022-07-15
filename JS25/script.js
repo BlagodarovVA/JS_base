@@ -45,6 +45,6 @@ logger();
 const calc1 = (a, b) => a + b;
 
 const calc2 = (a, b) => {
-    console.log('Стрелочная шляпа!');
+    console.log('Стрелочная шляпа');
     return a + b;
 };
