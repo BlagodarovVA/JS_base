@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 const boxesQuery = document.querySelectorAll('.box');     //получаем все элементы класса. имеет методы для работы
 const boxesGet = document.getElementsByClassName('box');  //то же самое что и выше, но менее полезно, без методов.

@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 const arr = ['Alex', 'Anna', 'Oleg', 'Alex', 'Styapan'];
 

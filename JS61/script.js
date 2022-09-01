@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 //max int
 console.log(Number.MAX_SAFE_INTEGER);

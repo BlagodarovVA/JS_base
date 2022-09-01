@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 //1 - 9
 //2 - 90 - 180
