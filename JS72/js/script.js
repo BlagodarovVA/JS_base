@@ -106,23 +106,48 @@ window.addEventListener('DOMContentLoaded', () => {
 
     setClock('.timer', deadline);
 
-    // Modal
-    const modalTrigger = document.querySelector('[data-modal]'),
+
+    // Modal //
+    const modalTrigger = document.querySelectorAll('[data-modal]'),
             modal = document.querySelector('.modal'),
             modalCloseBtn = document.querySelector('[data-close]');
 
-    modalTrigger.addEventListener('click', () => {
-        modal.classList.add('show');
-        modal.classList.remove('hide');
-        document.body.style.overflow = 'hidden';    // отключение прокрутки за модальным окном
+    modalTrigger.forEach(btn => {                       // чтобы работало для любой кнопки, а не одной.
+        btn.addEventListener('click', () => {
+            modal.classList.add('show');
+            modal.classList.remove('hide');
+            //modal.classList.toggle('show');           // переключаель. если класса нет, то добавим. если есть, то уберем
+            document.body.style.overflow = 'hidden';    // отключение прокрутки за модальным окном
+        });
     });
+    
 
-    modalCloseBtn.addEventListener('click', () => {
+    function closeModal() {
         modal.classList.add('hide');
         modal.classList.remove('show');
+        //modal.classList.toggle('show');           // переключаель. если класса нет, то добавим. если есть, то уберем
+        document.body.style.overflow = '';          // возвращаем скролл
+    }
+
+    modalCloseBtn.addEventListener('click', closeModal);    // функцию передаём, а не вызываем
+
+
+    // Закрытие модального окна кликом по подложке
+    modal.addEventListener('click', (e) => {        // передаём объект события е
+        if (e.target === modal) {                   // если место клика строго совпадаетс с модальным окном, а не модальным диалогом
+            closeModal();                          // то закрываем модальное окно
+    
+        }
     });
 
 
+    // Закрытие модального окна нажатием Esc
+    // коды - https://www.toptal.com/developers/keycode
+    document.addEventListener('keydown', (e) => {   // событие нажатие кнопки
+        if (e.code === "Escape" && modal.classList.contains('show')) {    // если код Escape и модальное окно открыто
+            closeModal();  
+        }
+    });
 
 
 });
