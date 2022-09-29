@@ -115,7 +115,7 @@ window.addEventListener('DOMContentLoaded', () => {
         modal.classList.remove('hide');
         //modal.classList.toggle('show');           // переключаель. если класса нет, то добавим. если есть, то уберем
         document.body.style.overflow = 'hidden';    // отключение прокрутки за модальным окном
-        clearInterval(modalTimerId);                // очистка таймера, если окно уже было открыто
+        //clearInterval(modalTimerId);                // очистка таймера, если окно уже было открыто
     }
 
 
@@ -255,6 +255,10 @@ window.addEventListener('DOMContentLoaded', () => {
         failure: 'Ой-ёй-ёй, ой-ёй-ёй, что-то пошло не так...'
     };
 
+    forms.forEach(item => {         // для каждой формы привязываем функцию postData
+        postData(item);             // которая является обработчиком события при отправке
+    });
+
     function postData(form) {
         form.addEventListener('submit', (e) => {
             e.preventDefault();                     // без перезагрузки страницы
@@ -267,14 +271,33 @@ window.addEventListener('DOMContentLoaded', () => {
             const request = new XMLHttpRequest();
             request.open('POST', 'server.php');
 
-            request.setRequestHeader('Content-type', 'multipart/form-data');    // заголовок говорит, что приходит
+           /*request.setRequestHeader('Content-type', 'multipart/form-data');    // заголовок говорит, что приходит
+           Когда используем связку XMLHttpRequest и FormData - заголовок устанавливать не нужно, он установится автоматически*/
+
+            // Отправляем информацию в JSON
+            request.setRequestHeader('Content-type', 'application/json');
             const formData = new FormData(form);    // собирает данные с формы
 
-            request.send(formData);                 // отправляем данные
+            const object = {};                      // создаём пустой объект для заполнения и конвертации
+            formData.forEach(function(value, key) {     // заполняем из formData
+                object[key] = value;
+            });
+
+            const json = JSON.stringify(object);        // преобразуем новый объект в JSON
+
+            request.send(json);                       // отправляем json
+            //request.send(formData);                 // отправляем данные
 
             request.addEventListener('load', () => {    // отслеживаем загрузку запроса
                 if (request.status === 200) {
                     console.log(request.response);
+                    statusMessage.textContent = message.success;    // сообщение - успешно
+                    form.reset();                                   // очищаем форму после отправки
+                    setTimeout(() => {                              // удаляем сообщение через 3 сек
+                        statusMessage.remove();
+                    },3000);
+                } else {
+                    statusMessage.textContent = message.failure;    // сообщение - ошибка
                 }
             });
         });
